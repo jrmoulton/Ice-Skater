@@ -3,6 +3,7 @@
 #define LIST_H
 
 #include <string>
+
 #include "skater.h"
 
 class List {
@@ -11,9 +12,11 @@ class List {
     void addNode(std::string country, float score);
     void printList();
     ~List();
+    friend std::ostream& operator<<(std::ostream& os, const List& m);
 
    private:
-    Skater *head;
-}
+    Skater* head;
+};
+std::ostream& operator<<(std::ostream& os, const List& m);
 
 #endif

@@ -3,8 +3,8 @@
 #
 # Compiler flags
 #
-CC = g++
-CPPFLAGS = -std=gnu++17 -Wall -Werror -Wextra -Wshadow
+CC = clang++
+CPPFLAGS = -std=gnu++2a -Wall -Werror -Wextra -Wshadow
 
 #
 # Project files

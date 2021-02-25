@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "skater.h"
-
 class Skater {
    public:
     Skater(std::string c, float s);
@@ -12,6 +10,8 @@ class Skater {
     float getScore();
     Skater *getNext();
     void setNext(Skater *p);
+    bool operator<(const Skater &rhs);
+    bool operator>(const Skater &rhs);
 
    private:
     std::string country;
