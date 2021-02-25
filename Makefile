@@ -3,8 +3,8 @@
 #
 # Compiler flags
 #
-CC = clang++
-CPPFLAGS = -std=gnu++2a -Wall -Werror -Wextra -Wshadow
+CC = g++
+CPPFLAGS = -std=gnu++17 -Wall -Werror -Wextra -Wshadow
 
 #
 # Project files
@@ -24,7 +24,7 @@ EXE  = main
 DBGDIR = target/debug
 DBGEXE = $(DBGDIR)/$(EXE)
 DBGOBJS = $(patsubst $(SRCDIR)/%.$(ftype), $(DBGDIR)/%.o, $(SRCS))
-DBGCFLAGS = -g -O0 -DDEBUG
+DBGCFLAGS = -g -O0 -DDEBUG -fno-inline-functions
 
 #
 # Release build settings
@@ -32,7 +32,7 @@ DBGCFLAGS = -g -O0 -DDEBUG
 RELDIR = target/release
 RELEXE = $(RELDIR)/$(EXE)
 RELOBJS = $(patsubst $(SRCDIR)/%.$(ftype), $(RELDIR)/%.o, $(SRCS))
-RELCFLAGS = -O3 -DNDEBUG
+RELCFLAGS = -O3 -DNDEBUG #-fno-inline-functions
 
 .PHONY: all clean debug release remake run
 

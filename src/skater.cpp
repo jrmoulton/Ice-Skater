@@ -58,17 +58,42 @@ Skater* Skater::getNext() {
     return next;
 }
 
-// bool Skater::operator<(const Skater& rhs) {
-//     if (score < rhs.score) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-// bool Skater::operator>(const Skater& rhs) {
-//     if (score > rhs.score) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+bool Skater::operator==(const Skater& rhs) {
+    if (score == rhs.score) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Skater::operator<(const Skater& rhs) {
+    if (score < rhs.score) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Skater::operator>(const Skater& rhs) {
+    if (score > rhs.score) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Skater::operator>=(const Skater& rhs) {
+    if (*this == rhs || *this > rhs) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Skater::operator<=(const Skater& rhs) {
+    if (*this == rhs || *this < rhs) {
+        return true;
+    } else {
+        return false;
+    }
+}

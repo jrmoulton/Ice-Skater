@@ -43,21 +43,21 @@ void List::addNode(std::string country, float score) {
         // set pos to head
         Skater* pos = head;
         // move pos to correct location
-        while (pos->getNext() && score < pos->getNext()->getScore()) {
+        while (pos->getNext() && new_node < pos->getNext()) {
             pos = pos->getNext();
         }
         // if new node is less than end of list:
-        if (!(pos->getNext()) && score <= pos->getScore()) {
+        if (!(pos->getNext()) && new_node <= pos) {
             // set new node to end of lis
             pos->setNext(new_node);
             // else if new node is greater than head:
-        } else if (score >= head->getScore()) {
+        } else if (new_node >= head) {
             // set new node to head
             new_node->setNext(head);
             head = new_node;
             // else if new node is inbetween two values in the list:
-        } else if (score <= pos->getScore() &&
-                   score >= pos->getNext()->getScore()) {
+        } else if (new_node <= pos &&
+                   new_node >= pos->getNext()) {
             // set new node inbetween those two values
             new_node->setNext(pos->getNext());
             pos->setNext(new_node);
